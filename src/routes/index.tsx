@@ -343,7 +343,7 @@ function Index() {
       {/* STATS */}
       <section className="section bg-[var(--ink)] text-[var(--cream)]">
         <div className="container-luxe grid grid-cols-2 md:grid-cols-4 gap-10">
-          {STATS.map((s) => <Stat key={s.label} {...s} />)}
+          {STATS.map((s) => <Stat key={s.label} value={s.v} suffix={s.suffix} label={s.label} />)}
         </div>
       </section>
 

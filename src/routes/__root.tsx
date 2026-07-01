@@ -15,6 +15,7 @@ import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { WhatsAppFab } from "@/components/site/WhatsAppFab";
 import { ThemeProvider } from "@/components/site/ThemeProvider";
+import { Toaster } from "@/components/ui/sonner";
 
 function NotFoundComponent() {
   return (
@@ -88,8 +89,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:title", content: "Triyash Media — Cinematic Films, Brands & Growth" },
       { property: "og:description", content: "We don't just create content. We build brands." },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
+      { property: "og:site_name", content: "Triyash Media" },
+      { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@TriyashMedia" },
+      { name: "twitter:title", content: "Triyash Media — Cinematic Films, Brands & Growth" },
+      { name: "twitter:description", content: "We don't just create content. We build brands." },
     ],
     links: [
       {
@@ -108,6 +112,31 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap",
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "Triyash Media",
+          description: "Luxury creative agency for cinematic films, photography, branding, web and growth.",
+          email: "hello@triyashmedia.com",
+          telephone: "+91 90000 00000",
+          areaServed: "Worldwide",
+          sameAs: [
+            "https://instagram.com/triyashmedia",
+            "https://youtube.com/@triyashmedia",
+            "https://linkedin.com/company/triyashmedia",
+          ],
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Pune",
+            addressRegion: "Maharashtra",
+            addressCountry: "IN",
+          },
+        }),
       },
     ],
   }),
@@ -143,6 +172,7 @@ function RootComponent() {
         </main>
         <Footer />
         <WhatsAppFab />
+        <Toaster position="bottom-right" richColors />
       </ThemeProvider>
     </QueryClientProvider>
   );

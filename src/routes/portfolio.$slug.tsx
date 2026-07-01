@@ -61,7 +61,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
 });
 
 function CaseDetail() {
-  const c = Route.useLoaderData();
+  const c = Route.useLoaderData() as CaseStudy;
   const others = CASES.filter((x) => x.slug !== c.slug).slice(0, 3);
   return (
     <>

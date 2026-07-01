@@ -104,7 +104,7 @@ function renderBlock(b: PostBlock, i: number) {
 }
 
 function BlogPost() {
-  const post = Route.useLoaderData();
+  const post = Route.useLoaderData() as Post;
   const related = POSTS.filter((p) => p.slug !== post.slug).slice(0, 3);
   return (
     <>

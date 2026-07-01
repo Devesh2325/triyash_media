@@ -1,33 +1,43 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHeader } from "@/components/site/PageHeader";
-import { ArrowUpRight, Camera, Clapperboard, Globe, LineChart, Megaphone, Palette, PenTool, PlayCircle, Rocket, Search, Share2 } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import { SERVICES } from "@/data/services";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
       { title: "Services — Triyash Media" },
-      { name: "description", content: "Cinematic films, photography, branding, websites, SEO and growth marketing — a full creative studio under one roof." },
-      { property: "og:title", content: "Services · Triyash Media" },
+      { name: "description", content: "Nine disciplines under one cinematic roof — film, photography, videography, branding, web, SEO, social, advertising and growth consulting." },
+      { property: "og:type", content: "website" },
+      { property: "og:title", content: "Services — Triyash Media" },
       { property: "og:description", content: "A full creative studio under one cinematic roof." },
+      { property: "og:url", content: "/services" },
+      { property: "og:image", content: SERVICES[0].cover },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Services — Triyash Media" },
+      { name: "twitter:description", content: "A full creative studio under one cinematic roof." },
+      { name: "twitter:image", content: SERVICES[0].cover },
+    ],
+    links: [{ rel: "canonical", href: "/services" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: "Triyash Media Services",
+          itemListElement: SERVICES.map((s, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            name: s.title,
+            url: `/services/${s.slug}`,
+          })),
+        }),
+      },
     ],
   }),
   component: Services,
 });
-
-const GROUPS = [
-  { icon: Clapperboard, title: "Film & Documentary", items: ["Documentary films", "Corporate films", "Short films", "Web series", "Music videos", "Promotional films", "Brand storytelling"] },
-  { icon: Camera, title: "Photography", items: ["Hotel photography", "Resort photography", "Real estate photography", "Café photography", "Restaurant photography", "Product photography", "Event photography", "Drone photography"] },
-  { icon: PlayCircle, title: "Videography", items: ["Cinematic videos", "Promotional videos", "Hotel & resort videos", "Travel films", "Drone videos", "Real estate videos", "Reels & shorts"] },
-  { icon: Globe, title: "Website Development", items: ["Business websites", "Hotel websites", "Portfolio websites", "Landing pages", "Maintenance", "Speed & SEO optimization"] },
-  { icon: Megaphone, title: "Digital Marketing", items: ["Social media marketing", "Brand promotion", "Content marketing", "Lead generation", "Email marketing", "Online reputation"] },
-  { icon: Share2, title: "Social Media Management", items: ["Instagram & Facebook", "LinkedIn", "YouTube", "Monthly planning", "Daily posting", "Community management"] },
-  { icon: Search, title: "Search Engine Optimization", items: ["Website SEO", "Local SEO", "Technical SEO", "Keyword research", "Google Business Profile", "Blog SEO", "Content writing"] },
-  { icon: PenTool, title: "Content Creation", items: ["Blog writing", "Copywriting", "Website content", "Business profiles", "Script writing", "Documentary research"] },
-  { icon: Palette, title: "Branding", items: ["Logo design", "Brand identity systems", "Company profiles", "Business portfolios", "Brochures", "Brand consulting"] },
-  { icon: Rocket, title: "Hospitality Marketing", items: ["Hotel branding", "Resort promotion", "Homestay marketing", "Café & restaurant branding", "Yoga & wellness", "Tourism campaigns"] },
-  { icon: LineChart, title: "Advertising", items: ["Meta Ads", "Google Ads", "YouTube promotion", "Launch campaigns", "Creative production"] },
-  { icon: Rocket, title: "Business Growth", items: ["Business consultation", "Marketing planning", "Growth strategy", "Customer engagement", "Long-term brand building"] },
-];
 
 function Services() {
   return (
@@ -35,24 +45,33 @@ function Services() {
       <PageHeader
         eyebrow="Capabilities"
         title={<>From a single frame to a <span className="text-gradient-gold italic">whole brand</span>.</>}
-        copy="Twelve disciplines, one studio. Engage us for a specific service or as your long-term creative partner — every engagement is bespoke."
+        copy="Nine disciplines, one studio. Engage us for a specific service or as your long-term creative partner — every engagement is bespoke."
       />
       <section className="section pt-4">
         <div className="container-luxe grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {GROUPS.map(({ icon: Icon, title, items }) => (
-            <div key={title} className="glass rounded-3xl p-7 hover-lift">
+          {SERVICES.map(({ slug, icon: Icon, title, tagline, offerings }) => (
+            <Link
+              key={slug}
+              to="/services/$slug"
+              params={{ slug }}
+              className="glass rounded-3xl p-7 hover-lift group flex flex-col"
+            >
               <div className="grid place-items-center h-12 w-12 rounded-2xl bg-gold/15 text-gold">
                 <Icon className="h-5 w-5" />
               </div>
               <h3 className="mt-5 font-display text-2xl">{title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground italic leading-relaxed">{tagline}</p>
               <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-                {items.map((i) => (
+                {offerings.slice(0, 5).map((i) => (
                   <li key={i} className="flex items-start gap-2">
                     <span className="mt-2 h-1 w-1 rounded-full bg-gold shrink-0" />{i}
                   </li>
                 ))}
               </ul>
-            </div>
+              <span className="mt-6 inline-flex items-center gap-1 text-sm text-gold group-hover:gap-2 transition-all">
+                Read more <ArrowUpRight className="h-4 w-4" />
+              </span>
+            </Link>
           ))}
         </div>
       </section>

@@ -35,11 +35,11 @@ export function Navbar() {
       }`}
     >
       <div className="container-luxe flex items-center justify-between gap-6">
-        <Link to="/" className="flex items-center gap-3 group">
-          <Logo className="h-11 w-auto transition-transform duration-500 group-hover:scale-105" />
+        <Link to="/" className="flex items-center gap-3 group" aria-label="Triyash Media — Home">
+          <Logo className="h-12 md:h-14 w-auto transition-transform duration-500 group-hover:scale-105" />
           <span className="hidden sm:flex flex-col leading-none">
-            <span className="font-display text-lg tracking-wide text-gradient-gold">TRIYASH</span>
-            <span className="eyebrow text-[0.6rem] mt-1">MEDIA</span>
+            <span className="font-display text-xl tracking-wide text-gradient-gold">TRIYASH</span>
+            <span className="eyebrow text-[0.62rem] mt-1">MEDIA</span>
           </span>
         </Link>
 

@@ -1,9 +1,9 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowUpRight, Calendar, Clock } from "lucide-react";
-import { POSTS, getPost, type PostBlock } from "@/data/blog";
+import { POSTS, getPost, type Post, type PostBlock } from "@/data/blog";
 
 export const Route = createFileRoute("/blog/$slug")({
-  loader: ({ params }) => {
+  loader: ({ params }): Post => {
     const post = getPost(params.slug);
     if (!post) throw notFound();
     return post;

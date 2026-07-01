@@ -1,9 +1,9 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
-import { CASES, getCase } from "@/data/portfolio";
+import { CASES, getCase, type CaseStudy } from "@/data/portfolio";
 
 export const Route = createFileRoute("/portfolio/$slug")({
-  loader: ({ params }) => {
+  loader: ({ params }): CaseStudy => {
     const c = getCase(params.slug);
     if (!c) throw notFound();
     return c;

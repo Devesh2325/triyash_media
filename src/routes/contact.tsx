@@ -2,14 +2,39 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader } from "@/components/site/PageHeader";
 import { Facebook, Instagram, Linkedin, Mail, MapPin, MessageCircle, Phone, Youtube } from "lucide-react";
 import { useState } from "react";
+import { toast } from "sonner";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact — Triyash Media" },
       { name: "description", content: "Start a project with Triyash Media. Cinematic films, brand and growth — replies within one business day." },
+      { property: "og:type", content: "website" },
       { property: "og:title", content: "Contact · Triyash Media" },
       { property: "og:description", content: "Tell us about your studio, hotel or idea." },
+      { property: "og:url", content: "/contact" },
+      { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: "Contact · Triyash Media" },
+      { name: "twitter:description", content: "Tell us about your studio, hotel or idea." },
+    ],
+    links: [{ rel: "canonical", href: "/contact" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          name: "Contact — Triyash Media",
+          url: "/contact",
+          contactPoint: {
+            "@type": "ContactPoint",
+            email: "hello@triyashmedia.com",
+            telephone: "+91 90000 00000",
+            contactType: "customer service",
+            areaServed: "Worldwide",
+          },
+        }),
+      },
     ],
   }),
   component: Contact,
@@ -17,6 +42,43 @@ export const Route = createFileRoute("/contact")({
 
 function Contact() {
   const [sent, setSent] = useState(false);
+  const [busy, setBusy] = useState(false);
+
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    if (busy) return;
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+    const payload = {
+      name: String(fd.get("name") || ""),
+      email: String(fd.get("email") || ""),
+      company: String(fd.get("company") || ""),
+      phone: String(fd.get("phone") || ""),
+      service: String(fd.get("service") || ""),
+      message: String(fd.get("message") || ""),
+    };
+    setBusy(true);
+    try {
+      const res = await fetch("/api/public/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const json = (await res.json().catch(() => ({}))) as { ok?: boolean; error?: string };
+      if (!res.ok || !json.ok) {
+        throw new Error(json.error || "We couldn't send your message. Please try again in a moment.");
+      }
+      setSent(true);
+      form.reset();
+      toast.success("Your note has landed at the studio. We'll reply within one business day.");
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : "Something went wrong";
+      toast.error(msg);
+    } finally {
+      setBusy(false);
+    }
+  }
+
   return (
     <>
       <PageHeader
@@ -27,7 +89,7 @@ function Contact() {
       <section className="section pt-4">
         <div className="container-luxe grid lg:grid-cols-[1.4fr_1fr] gap-12">
           <form
-            onSubmit={(e) => { e.preventDefault(); setSent(true); }}
+            onSubmit={onSubmit}
             className="glass rounded-3xl p-8 md:p-10 space-y-5"
           >
             <div className="grid md:grid-cols-2 gap-5">
@@ -40,7 +102,7 @@ function Contact() {
             </div>
             <div>
               <label className="block eyebrow mb-2">Service of interest</label>
-              <select className="w-full rounded-2xl bg-background/40 border border-border/60 px-4 py-3.5 text-sm outline-none focus:border-gold">
+              <select name="service" className="w-full rounded-2xl bg-background/40 border border-border/60 px-4 py-3.5 text-sm outline-none focus:border-gold">
                 {["Film & Documentary", "Photography", "Branding", "Website", "SEO & Growth", "Hospitality Marketing", "Not sure yet"].map((s) => (
                   <option key={s}>{s}</option>
                 ))}
@@ -49,6 +111,7 @@ function Contact() {
             <div>
               <label className="block eyebrow mb-2">Tell us more</label>
               <textarea
+                name="message"
                 rows={5}
                 required
                 placeholder="The brand, the goal, the timeline, anything else we should know…"
@@ -57,9 +120,10 @@ function Contact() {
             </div>
             <button
               type="submit"
-              className="w-full md:w-auto rounded-full bg-gold px-8 py-4 font-ui font-medium text-[var(--ink)] hover-lift"
+              disabled={busy}
+              className="w-full md:w-auto rounded-full bg-gold px-8 py-4 font-ui font-medium text-[var(--ink)] hover-lift disabled:opacity-70 disabled:cursor-not-allowed"
             >
-              {sent ? "Thanks — we'll be in touch ✦" : "Send the brief"}
+              {busy ? "Sending…" : sent ? "Thanks — we'll be in touch ✦" : "Send the brief"}
             </button>
           </form>
 

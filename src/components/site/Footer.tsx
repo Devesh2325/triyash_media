@@ -8,7 +8,7 @@ export function Footer() {
       <div className="gold-divider" />
       <div className="container-luxe pt-20 pb-10 grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
         <div>
-          <Logo className="h-14 w-auto" />
+          <Logo className="h-16 md:h-20 w-auto" />
           <p className="mt-5 max-w-xs text-sm leading-relaxed text-muted-foreground">
             Triyash Media is a luxury creative house crafting cinematic stories,
             world-class brands and growth systems for hospitality, lifestyle and ambition.

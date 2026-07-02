@@ -72,8 +72,15 @@ function Contact() {
       form.reset();
       toast.success("Your note has landed at the studio. We'll reply within one business day.");
     } catch (err) {
-      const msg = err instanceof Error ? err.message : "Something went wrong";
-      toast.error(msg);
+      // Graceful fallback: open the user's email client with the message pre-filled.
+      const subject = encodeURIComponent(`New enquiry from ${payload.name}${payload.company ? ` · ${payload.company}` : ""}`);
+      const body = encodeURIComponent(
+        `Name: ${payload.name}\nEmail: ${payload.email}\nCompany: ${payload.company}\nPhone: ${payload.phone}\nInterest: ${payload.service}\n\n${payload.message}`,
+      );
+      window.location.href = `mailto:hello@triyashmedia.com?subject=${subject}&body=${body}`;
+      toast.message("Opening your email app so your note reaches us directly.", {
+        description: err instanceof Error ? err.message : undefined,
+      });
     } finally {
       setBusy(false);
     }

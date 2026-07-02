@@ -1,4 +1,4 @@
-import logoAsset from "@/assets/triyash-logo.png.asset.json";
+import logoAsset from "@/assets/triyash-logo-light.png";
 
 /**
  * Logo mark wrapped in a soft cream chip so the artwork stays legible on
@@ -13,7 +13,7 @@ export function Logo({
 }) {
   const img = (
     <img
-      src={logoAsset.url}
+      src={logoAsset}
       alt="Triyash Media"
       className={className}
       loading="eager"

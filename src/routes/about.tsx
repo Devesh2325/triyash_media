@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHeader } from "@/components/site/PageHeader";
-import founderAsset from "@/assets/founder.png.asset.json";
+import founderAsset from "@/assets/founder.png";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -42,7 +42,7 @@ function About() {
         <div className="container-luxe grid lg:grid-cols-2 gap-12 items-center">
           <div className="relative">
             <div className="absolute -inset-6 rounded-[2rem] bg-gradient-to-br from-gold/20 to-accent/20 blur-2xl" />
-            <img src={founderAsset.url} alt="Founder" className="relative rounded-[2rem] border border-gold/20 shadow-luxe w-full h-auto" />
+            <img src={founderAsset} alt="Founder" className="relative rounded-[2rem] border border-gold/20 shadow-luxe w-full h-auto" />
           </div>
           <div>
             <p className="eyebrow">Founder's message</p>

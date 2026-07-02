@@ -58,17 +58,15 @@ function confirmationHtml(data: z.infer<typeof ContactSchema>) {
 async function sendViaResend(payload: {
   from: string; to: string[]; subject: string; html: string; reply_to?: string;
 }) {
-  const LOVABLE_API_KEY = process.env.LOVABLE_API_KEY;
   const RESEND_API_KEY = process.env.RESEND_API_KEY;
-  if (!LOVABLE_API_KEY || !RESEND_API_KEY) {
-    throw new Error("Email is not configured yet — the Resend connector is not linked.");
+  if (!RESEND_API_KEY) {
+    throw new Error("Email is not configured yet — Resend API key is missing.");
   }
-  const res = await fetch("https://connector-gateway.lovable.dev/resend/emails", {
+  const res = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${LOVABLE_API_KEY}`,
-      "X-Connection-Api-Key": RESEND_API_KEY,
+      Authorization: `Bearer ${RESEND_API_KEY}`,
     },
     body: JSON.stringify(payload),
   });

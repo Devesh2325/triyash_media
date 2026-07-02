@@ -1,4 +1,4 @@
-import { Link, useLocation } from "@tanstack/react-router";
+﻿import { Link, useLocation } from "@tanstack/react-router";
 import { Menu, Moon, Sun, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Logo } from "./Logo";

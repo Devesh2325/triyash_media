@@ -4,6 +4,8 @@ import { Facebook, Instagram, Linkedin, Mail, MapPin, MessageCircle, Phone, Yout
 import { useState } from "react";
 import { toast } from "sonner";
 
+const NOTIFY_EMAIL = import.meta.env.VITE_NOTIFY_EMAIL || "dmchaturvedi@gmail.com";
+
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
@@ -26,10 +28,10 @@ export const Route = createFileRoute("/contact")({
           "@type": "ContactPage",
           name: "Contact — Triyash Media",
           url: "/contact",
-          contactPoint: {
+            contactPoint: {
             "@type": "ContactPoint",
-            email: "hello@triyashmedia.com",
-            telephone: "+91 90000 00000",
+            email: NOTIFY_EMAIL,
+            telephone: "+91 86790 07159",
             contactType: "customer service",
             areaServed: "Worldwide",
           },
@@ -77,7 +79,7 @@ function Contact() {
       const body = encodeURIComponent(
         `Name: ${payload.name}\nEmail: ${payload.email}\nCompany: ${payload.company}\nPhone: ${payload.phone}\nInterest: ${payload.service}\n\n${payload.message}`,
       );
-      window.location.href = `mailto:hello@triyashmedia.com?subject=${subject}&body=${body}`;
+      window.location.href = `mailto:${NOTIFY_EMAIL}?subject=${subject}&body=${body}`;
       toast.message("Opening your email app so your note reaches us directly.", {
         description: err instanceof Error ? err.message : undefined,
       });
@@ -94,10 +96,10 @@ function Contact() {
         copy="A thoughtful note beats a contact-form ping. Share what you're building and we'll reply within one business day."
       />
       <section className="section pt-4">
-        <div className="container-luxe grid lg:grid-cols-[1.4fr_1fr] gap-12">
+        <div className="container-luxe grid grid-cols-1 gap-10 lg:grid-cols-[1.4fr_1fr] lg:gap-12">
           <form
             onSubmit={onSubmit}
-            className="glass rounded-3xl p-8 md:p-10 space-y-5"
+            className="glass rounded-3xl p-6 md:p-10 space-y-5"
           >
             <div className="grid md:grid-cols-2 gap-5">
               <Field label="Your name" name="name" placeholder="Aanya Sethi" />
@@ -128,30 +130,37 @@ function Contact() {
             <button
               type="submit"
               disabled={busy}
-              className="w-full md:w-auto rounded-full bg-gold px-8 py-4 font-ui font-medium text-[var(--ink)] hover-lift disabled:opacity-70 disabled:cursor-not-allowed"
+              className="w-full rounded-full bg-gold px-6 py-4 font-ui font-medium text-[var(--ink)] hover-lift disabled:opacity-70 disabled:cursor-not-allowed text-center"
             >
               {busy ? "Sending…" : sent ? "Thanks — we'll be in touch ✦" : "Send the brief"}
             </button>
           </form>
 
           <aside className="space-y-6">
-            <Info icon={Phone} label="Phone" value="+91 90000 00000" href="tel:+919000000000" />
-            <Info icon={Mail} label="Email" value="hello@triyashmedia.com" href="mailto:hello@triyashmedia.com" />
-            <Info icon={MessageCircle} label="WhatsApp" value="Chat with the studio" href="https://wa.me/919000000000" />
+            <Info icon={Phone} label="Phone" value="+91 86790 07159" href="tel:+91+918679007159" />
+            <Info icon={Mail} label="Email" value={NOTIFY_EMAIL} href={`mailto:${NOTIFY_EMAIL}`} />
+            <Info icon={MessageCircle} label="WhatsApp" value="Chat with the studio" href="https://wa.me/91+918679007159" />
             <Info icon={MapPin} label="Studio" value="Pune · Mumbai · Worldwide" />
 
             <div className="glass rounded-3xl p-6">
               <p className="eyebrow mb-4">Follow the work</p>
-              <div className="flex gap-3">
-                {[Instagram, Facebook, Linkedin, Youtube].map((Icon, i) => (
-                  <a key={i} href="#" className="grid place-items-center h-11 w-11 rounded-full border border-border/60 hover:border-gold hover:text-gold transition-colors" aria-label="Social">
-                    <Icon className="h-4 w-4" />
-                  </a>
-                ))}
+              <div className="grid grid-cols-4 gap-3">
+                <a href="https://www.instagram.com/triyashmedia1/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="grid place-items-center h-11 w-11 rounded-full border border-border/60 hover:border-gold hover:text-gold transition-colors">
+                  <Instagram className="h-4 w-4" />
+                </a>
+                <a href="https://www.facebook.com/share/1Czy5CiZWg/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="grid place-items-center h-11 w-11 rounded-full border border-border/60 hover:border-gold hover:text-gold transition-colors">
+                  <Facebook className="h-4 w-4" />
+                </a>
+                <a href="https://www.linkedin.com/in/ankit-singh-49955a3a7/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="grid place-items-center h-11 w-11 rounded-full border border-border/60 hover:border-gold hover:text-gold transition-colors">
+                  <Linkedin className="h-4 w-4" />
+                </a>
+                <a href="https://youtube.com/@triyashmedia" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="grid place-items-center h-11 w-11 rounded-full border border-border/60 hover:border-gold hover:text-gold transition-colors">
+                  <Youtube className="h-4 w-4" />
+                </a>
               </div>
             </div>
 
-            <div className="overflow-hidden rounded-3xl border border-border/40 aspect-[5/3]">
+            <div className="overflow-hidden rounded-3xl border border-border/40 w-full h-72 md:h-auto md:aspect-[5/3]">
               <iframe
                 title="Studio location"
                 src="https://www.openstreetmap.org/export/embed.html?bbox=73.79%2C18.49%2C73.95%2C18.59&layer=mapnik"

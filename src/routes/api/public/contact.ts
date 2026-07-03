@@ -10,8 +10,8 @@ const ContactSchema = z.object({
   message: z.string().trim().min(5).max(4000),
 });
 
-const NOTIFY_TO = "hello@triyashmedia.com";
-const FROM_ADDRESS = "Triyash Studio <onboarding@resend.dev>";
+const NOTIFY_TO = process.env.CONTACT_NOTIFY_EMAIL || process.env.NOTIFY_TO || process.env.NOTIFY_EMAIL || "dmchaturvedi@gmail.com";
+const FROM_ADDRESS = process.env.FROM_ADDRESS || "Triyash Studio <onboarding@resend.dev>";
 
 function escapeHtml(s: string) {
   return s
@@ -48,10 +48,10 @@ function confirmationHtml(data: z.infer<typeof ContactSchema>) {
       Your note has landed at the Triyash Media studio. Someone from our team will read it personally and reply within one business day.
     </p>
     <p style="line-height:1.7;font-size:16px;margin-top:20px">
-      In the meantime — if it's urgent — reply to this email or reach us on WhatsApp at <strong>+91 90000 00000</strong>.
+      In the meantime — if it's urgent — reply to this email or reach us on WhatsApp at <strong>+91 86790 07159</strong>.
     </p>
     <hr style="border:none;border-top:1px solid #e5ddc8;margin:32px 0" />
-    <p style="color:#666;margin:0;font-size:13px">Triyash Media · Pune · Mumbai · Worldwide<br/>hello@triyashmedia.com</p>
+    <p style="color:#666;margin:0;font-size:13px">Triyash Media · Pune · Mumbai · Worldwide<br/>info@triyashmedia.com</p>
   </div>`;
 }
 

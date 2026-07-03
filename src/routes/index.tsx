@@ -408,7 +408,7 @@ function Index() {
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <Link to="/contact" className="rounded-full bg-gold px-8 py-4 font-ui font-medium text-[var(--ink)] hover-lift">Start the conversation</Link>
-              <a href="mailto:hello@triyashmedia.com" className="rounded-full border border-gold/40 px-8 py-4 font-ui hover:border-gold hover:text-gold transition-colors">hello@triyashmedia.com</a>
+              <a href="mailto:info@triyashmedia.com" className="rounded-full border border-gold/40 px-8 py-4 font-ui hover:border-gold hover:text-gold transition-colors">info@triyashmedia.com</a>
             </div>
           </div>
         </div>

@@ -20,7 +20,7 @@ function Terms() {
         <Block t="Intellectual property">All films, photography, designs and copy on this site are © Triyash Media unless explicitly credited.</Block>
         <Block t="Engagements">Every project is governed by a separate Statement of Work that defines scope, deliverables, timelines and ownership.</Block>
         <Block t="Liability">We work hard to keep things accurate. We are not liable for indirect damages arising from use of the website.</Block>
-        <Block t="Contact">Questions? <a className="text-gold" href="mailto:hello@triyashmedia.com">hello@triyashmedia.com</a></Block>
+        <Block t="Contact">Questions? <a className="text-gold" href="mailto:info@triyashmedia.com">info@triyashmedia.com</a></Block>
       </section>
     </>
   );

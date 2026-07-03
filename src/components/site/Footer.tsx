@@ -14,16 +14,45 @@ export function Footer() {
             world-class brands and growth systems for hospitality, lifestyle and ambition.
           </p>
           <div className="mt-6 flex gap-3">
-            {[Instagram, Facebook, Linkedin, Youtube].map((Icon, i) => (
-              <a
-                key={i}
-                href="#"
-                aria-label="Social"
-                className="grid place-items-center h-10 w-10 rounded-full border border-border/60 hover:border-gold hover:text-gold transition-colors"
-              >
-                <Icon className="h-4 w-4" />
-              </a>
-            ))}
+            <a
+              href="https://www.instagram.com/triyashmedia1/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="grid place-items-center h-10 w-10 rounded-full border border-border/60 hover:border-gold hover:text-gold transition-colors"
+            >
+              <Instagram className="h-4 w-4" />
+            </a>
+
+            <a
+              href="https://www.facebook.com/share/1Czy5CiZWg/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              className="grid place-items-center h-10 w-10 rounded-full border border-border/60 hover:border-gold hover:text-gold transition-colors"
+            >
+              <Facebook className="h-4 w-4" />
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/ankit-singh-49955a3a7/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="grid place-items-center h-10 w-10 rounded-full border border-border/60 hover:border-gold hover:text-gold transition-colors"
+            >
+              <Linkedin className="h-4 w-4" />
+            </a>
+
+            <a
+              href="https://youtube.com/@triyashmedia"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube"
+              className="grid place-items-center h-10 w-10 rounded-full border border-border/60 hover:border-gold hover:text-gold transition-colors"
+            >
+              <Youtube className="h-4 w-4" />
+            </a>
           </div>
         </div>
 
@@ -68,8 +97,8 @@ export function Footer() {
             <button className="rounded-full bg-gold px-5 py-2.5 text-sm font-medium text-[var(--ink)] hover-lift">Join</button>
           </form>
           <ul className="mt-6 space-y-2.5 text-sm text-muted-foreground">
-            <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-gold" /> +91 90000 00000</li>
-            <li className="flex items-center gap-2"><Mail className="h-4 w-4 text-gold" /> hello@triyashmedia.com</li>
+            <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-gold" /> +91 86790 07159</li>
+            <li className="flex items-center gap-2"><Mail className="h-4 w-4 text-gold" /> info@triyashmedia.com</li>
             <li className="flex items-center gap-2"><MapPin className="h-4 w-4 text-gold" /> Pune · Mumbai · Worldwide</li>
           </ul>
         </div>

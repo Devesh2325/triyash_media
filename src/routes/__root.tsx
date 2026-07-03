@@ -118,13 +118,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@type": "Organization",
           name: "Triyash Media",
           description: "Luxury creative agency for cinematic films, photography, branding, web and growth.",
-          email: "hello@triyashmedia.com",
-          telephone: "+91 90000 00000",
+          email: "info@triyashmedia.com",
+          telephone: "+91 86790 07159",
           areaServed: "Worldwide",
           sameAs: [
-            "https://instagram.com/triyashmedia",
+            "https://www.instagram.com/triyashmedia1/",
             "https://youtube.com/@triyashmedia",
-            "https://linkedin.com/company/triyashmedia",
+            "https://www.linkedin.com/in/ankit-singh-49955a3a7/",
+            "https://www.facebook.com/share/1Czy5CiZWg/"
           ],
           address: {
             "@type": "PostalAddress",
@@ -137,7 +138,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
   }),
   shellComponent: RootShell,
-  component: RootComponent,
+  component: RootComponent, 
   notFoundComponent: NotFoundComponent,
   errorComponent: ErrorComponent,
 });

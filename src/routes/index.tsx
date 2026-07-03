@@ -13,7 +13,7 @@ import workRestaurant from "@/assets/work-restaurant.jpg";
 import workRealestate from "@/assets/work-realestate.jpg";
 import workEditing from "@/assets/work-editing.jpg";
 import workEvent from "@/assets/work-event.jpg";
-import founderAsset from "@/assets/founder.png.asset.json";
+import founderAsset from "@/assets/founder.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -315,7 +315,7 @@ function Index() {
           >
             <div className="absolute -inset-6 rounded-[2rem] bg-gradient-to-br from-gold/20 via-transparent to-accent/30 blur-2xl" />
             <div className="relative overflow-hidden rounded-[2rem] border border-gold/20 shadow-luxe">
-              <img src={founderAsset.url} alt="Founder, Triyash Media" className="w-full h-auto object-cover" />
+              <img src={founderAsset} alt="Founder, Triyash Media" className="w-full h-auto object-cover" />
               <div className="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-[var(--ink)]/90 to-transparent text-[var(--cream)]">
                 <p className="eyebrow text-gold">Founder & Creative Director</p>
                 <p className="font-display text-2xl mt-1">Triyash Media Studio</p>

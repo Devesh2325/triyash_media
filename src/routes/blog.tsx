@@ -15,14 +15,14 @@ export const Route = createFileRoute("/blog")({
   validateSearch: zodValidator(searchSchema),
   head: () => ({
     meta: [
-      { title: "Journal — Triyash Media" },
+      { title: "Blog — Triyash Media" },
       { name: "description", content: "Field notes on cinema, brand strategy, hospitality marketing and creative craft from the Triyash Media studio." },
       { property: "og:type", content: "website" },
-      { property: "og:title", content: "Journal — Triyash Media" },
+      { property: "og:title", content: "Blog — Triyash Media" },
       { property: "og:description", content: "Field notes on cinema, brand and culture." },
       { property: "og:url", content: "/blog" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Journal — Triyash Media" },
+      { name: "twitter:title", content: "Blog — Triyash Media" },
       { name: "twitter:description", content: "Field notes on cinema, brand and culture." },
     ],
     links: [{ rel: "canonical", href: "/blog" }],
@@ -32,7 +32,7 @@ export const Route = createFileRoute("/blog")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Blog",
-          name: "Triyash Media Journal",
+          name: "Triyash Media Blog",
           description: "Field notes on cinema, brand and culture.",
           publisher: { "@type": "Organization", name: "Triyash Media" },
         }),
@@ -54,7 +54,7 @@ function Blog() {
   return (
     <>
       <PageHeader
-        eyebrow="Journal"
+        eyebrow="Blog"
         title={<>Field notes on cinema, brand and <span className="text-gradient-gold italic">culture</span>.</>}
         copy="Monthly essays from the studio on craft, hospitality, branding and the business of building beautiful things."
       />

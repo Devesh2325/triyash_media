@@ -137,9 +137,9 @@ function Contact() {
           </form>
 
           <aside className="space-y-6">
-            <Info icon={Phone} label="Phone" value="+91 86790 07159" href="tel:+91+918679007159" />
+            <Info icon={Phone} label="Phone" value="+91 86790 07159" href="tel:+918679007159" />
             <Info icon={Mail} label="Email" value={NOTIFY_EMAIL} href={`mailto:${NOTIFY_EMAIL}`} />
-            <Info icon={MessageCircle} label="WhatsApp" value="Chat with the studio" href="https://wa.me/91+918679007159" />
+            <Info icon={MessageCircle} label="WhatsApp" value="Chat with the studio" href="https://wa.me/+918679007159" />
             <Info icon={MapPin} label="Studio" value="Mumbai Andheri" />
 
             <div className="glass rounded-3xl p-6">
@@ -159,15 +159,15 @@ function Contact() {
                 </a>
               </div>
             </div>
-
+{/* Map
             <div className="overflow-hidden rounded-3xl border border-border/40 w-full h-72 md:h-auto md:aspect-[5/3]">
-              <iframe
+               <iframe 
                 title="Studio location"
                 src="https://www.openstreetmap.org/export/embed.html?bbox=73.79%2C18.49%2C73.95%2C18.59&layer=mapnik"
                 className="w-full h-full"
                 loading="lazy"
               />
-            </div>
+            </div> */}
           </aside>
         </div>
       </section>

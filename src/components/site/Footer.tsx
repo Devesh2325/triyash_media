@@ -4,7 +4,7 @@ import { Logo } from "./Logo";
 
 export function Footer() {
   return (
-    <footer className="relative mt-32 border-t border-border/40 bg-[color-mix(in_oklab,var(--card)_60%,transparent)]">
+    <footer className="relative mt-32 border-t border-border/40 bg-[color-mix(in_oklab,var(--card)_60%,transparent)] safe-padding-bottom">
       <div className="gold-divider" />
       <div className="container-luxe pt-20 pb-10 grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
         <div>
@@ -63,7 +63,7 @@ export function Footer() {
               ["About", "/about"],
               ["Services", "/services"],
               ["Portfolio", "/portfolio"],
-              ["Journal", "/blog"],
+              ["Blog", "/blog"],
               ["Contact", "/contact"],
             ].map(([label, to]) => (
               <li key={to}>
@@ -82,7 +82,10 @@ export function Footer() {
           </ul>
         </div>
 
-        <div>
+    
+    {/* This is now not working so now its hide */}
+    {/* 
+   <div>
           <p className="eyebrow mb-5">Stay in the frame</p>
           <p className="text-sm text-muted-foreground mb-4">
             Field notes on cinema, brand and culture — once a month.
@@ -95,7 +98,9 @@ export function Footer() {
               className="flex-1 rounded-full bg-background/60 border border-border/60 px-4 py-2.5 text-sm outline-none focus:border-gold"
             />
             <button className="rounded-full bg-gold px-5 py-2.5 text-sm font-medium text-[var(--ink)] hover-lift">Join</button>
-          </form>
+          </form> */}
+
+        <div>
           <ul className="mt-6 space-y-2.5 text-sm text-muted-foreground">
             <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-gold" /> +91 86790 07159</li>
             <li className="flex items-center gap-2"><Mail className="h-4 w-4 text-gold" /> info@triyashmedia.com</li>

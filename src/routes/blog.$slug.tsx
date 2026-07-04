@@ -54,7 +54,7 @@ export const Route = createFileRoute("/blog/$slug")({
     <div className="section container-luxe text-center">
       <p className="eyebrow">404</p>
       <h1 className="mt-4 font-display text-5xl">Post not found</h1>
-      <Link to="/blog" className="mt-6 inline-block text-gold underline">Back to Journal</Link>
+      <Link to="/blog" className="mt-6 inline-block text-gold underline">Back to Blog</Link>
     </div>
   ),
   errorComponent: ({ error }) => (
@@ -109,7 +109,7 @@ function BlogPost() {
   return (
     <>
       <section className="container-luxe pt-16 pb-8 max-w-3xl">
-        <Link to="/blog" className="eyebrow text-gold hover:opacity-80">← Journal</Link>
+        <Link to="/blog" className="eyebrow text-gold hover:opacity-80">← Blog</Link>
         <p className="eyebrow mt-8">{post.category}</p>
         <h1 className="mt-4 font-display text-4xl md:text-6xl leading-[1.05]">{post.title}</h1>
         <div className="mt-8 flex flex-wrap items-center gap-4 text-sm text-muted-foreground">

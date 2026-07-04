@@ -9,7 +9,7 @@ const NAV = [
   { to: "/about", label: "About" },
   { to: "/services", label: "Services" },
   { to: "/portfolio", label: "Portfolio" },
-  { to: "/blog", label: "Journal" },
+  { to: "/blog", label: "Blog" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
@@ -27,6 +27,14 @@ export function Navbar() {
   }, []);
 
   useEffect(() => setOpen(false), [pathname]);
+
+  useEffect(() => {
+    try {
+      document.documentElement.classList.toggle("nav-open", open);
+    } catch (e) {
+      /* ignore server-side */
+    }
+  }, [open]);
 
   return (
     <header

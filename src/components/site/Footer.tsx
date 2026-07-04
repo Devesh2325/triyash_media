@@ -99,7 +99,7 @@ export function Footer() {
           <ul className="mt-6 space-y-2.5 text-sm text-muted-foreground">
             <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-gold" /> +91 86790 07159</li>
             <li className="flex items-center gap-2"><Mail className="h-4 w-4 text-gold" /> info@triyashmedia.com</li>
-            <li className="flex items-center gap-2"><MapPin className="h-4 w-4 text-gold" /> Pune · Mumbai · Worldwide</li>
+            <li className="flex items-center gap-2"><MapPin className="h-4 w-4 text-gold" /> Mumbai Andheri</li>
           </ul>
         </div>
       </div>

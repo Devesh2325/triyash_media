@@ -92,8 +92,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:description", content: "We don't just create content. We build brands." },
     ],
     links: [
-      {
-        rel: "stylesheet",
+      {        rel: "icon",
+        href: "/favicon.svg",
+        type: "image/svg+xml",
+      },
+      {        rel: "stylesheet",
         href: appCss,
       },
       {

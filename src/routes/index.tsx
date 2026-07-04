@@ -317,15 +317,15 @@ function Index() {
             <div className="relative overflow-hidden rounded-[2rem] border border-gold/20 shadow-luxe">
               <img src={founderAsset} alt="Founder, Triyash Media" className="w-full h-auto object-cover" />
               <div className="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-[var(--ink)]/90 to-transparent text-[var(--cream)]">
-                <p className="eyebrow text-gold">Founder & Creative Director</p>
-                <p className="font-display text-2xl mt-1">Triyash Media Studio</p>
+                <p className="eyebrow text-gold">Founder & Director</p>
+                <p className="font-display text-2xl mt-1">Triyash Media & Production</p>
               </div>
             </div>
           </motion.div>
           <div>
             <p className="eyebrow">Founder's note</p>
             <h2 className="mt-3 font-display text-4xl md:text-5xl leading-tight">
-              "I built Triyash to make Indian brands look like the global ones we admire — without losing our soul."
+              "I built Triyash media to make Indian brands look like the global ones we admire — without losing our soul."
             </h2>
             <p className="mt-6 text-muted-foreground leading-relaxed">
               From a single camera and a notebook to a studio shipping work across hospitality,

@@ -4,7 +4,7 @@ import { Facebook, Instagram, Linkedin, Mail, MapPin, MessageCircle, Phone, Yout
 import { useState } from "react";
 import { toast } from "sonner";
 
-const NOTIFY_EMAIL = import.meta.env.VITE_NOTIFY_EMAIL || "dmchaturvedi@gmail.com";
+const NOTIFY_EMAIL = import.meta.env.VITE_NOTIFY_EMAIL || "info@triyashmedia.com";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -140,7 +140,7 @@ function Contact() {
             <Info icon={Phone} label="Phone" value="+91 86790 07159" href="tel:+91+918679007159" />
             <Info icon={Mail} label="Email" value={NOTIFY_EMAIL} href={`mailto:${NOTIFY_EMAIL}`} />
             <Info icon={MessageCircle} label="WhatsApp" value="Chat with the studio" href="https://wa.me/91+918679007159" />
-            <Info icon={MapPin} label="Studio" value="Pune · Mumbai · Worldwide" />
+            <Info icon={MapPin} label="Studio" value="Mumbai Andheri" />
 
             <div className="glass rounded-3xl p-6">
               <p className="eyebrow mb-4">Follow the work</p>

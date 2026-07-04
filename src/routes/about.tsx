@@ -24,7 +24,7 @@ const VALUES = [
 const TIMELINE = [
   { y: "2017", t: "The first frame", d: "Triyash Media opens with one camera, one founder and a notebook full of films." },
   { y: "2019", t: "Hospitality focus", d: "We narrow into hotels, resorts and lifestyle — and never looked back." },
-  { y: "2021", t: "Studio era", d: "Pune studio opens. A full in-house post pipeline, color suite and writers' room." },
+  { y: "2021", t: "Studio era", d: "Studio opens. A full in-house post pipeline, color suite and writers' room." },
   { y: "2023", t: "Growth division", d: "SEO, performance and brand growth join the studio. Films + funnels under one roof." },
   { y: "2026", t: "Worldwide", d: "320+ projects across 28 cities. Now shooting and shipping across three continents." },
 ];

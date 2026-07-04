@@ -10,7 +10,7 @@ const ContactSchema = z.object({
   message: z.string().trim().min(5).max(4000),
 });
 
-const NOTIFY_TO = process.env.CONTACT_NOTIFY_EMAIL || process.env.NOTIFY_TO || process.env.NOTIFY_EMAIL || "dmchaturvedi@gmail.com";
+const NOTIFY_TO = process.env.CONTACT_NOTIFY_EMAIL || process.env.NOTIFY_TO || process.env.NOTIFY_EMAIL || "info@triyashmedia.com";
 const FROM_ADDRESS = process.env.FROM_ADDRESS || "Triyash Studio <onboarding@resend.dev>";
 
 function escapeHtml(s: string) {
@@ -51,7 +51,7 @@ function confirmationHtml(data: z.infer<typeof ContactSchema>) {
       In the meantime — if it's urgent — reply to this email or reach us on WhatsApp at <strong>+91 86790 07159</strong>.
     </p>
     <hr style="border:none;border-top:1px solid #e5ddc8;margin:32px 0" />
-    <p style="color:#666;margin:0;font-size:13px">Triyash Media · Pune · Mumbai · Worldwide<br/>info@triyashmedia.com</p>
+    <p style="color:#666;margin:0;font-size:13px">Triyash Media ·Mumbai Andheri<br/>info@triyashmedia.com</p>
   </div>`;
 }
 

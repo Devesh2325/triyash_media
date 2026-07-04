@@ -5,7 +5,7 @@ import logoAsset from "@/assets/triyash-logo-light.png";
  * both the dark navy and light ivory themes.
  */
 export function Logo({
-  className = "h-14 w-auto",
+  className = "h-10 w-auto",
   bare = false,
 }: {
   className?: string;
@@ -22,7 +22,7 @@ export function Logo({
   );
   if (bare) return img;
   return (
-    <span className="inline-flex items-center justify-center rounded-2xl bg-[#FAF7F2] px-3 py-1.5 ring-1 ring-gold/40 shadow-[0_10px_30px_-15px_rgba(0,0,0,0.35)]">
+    <span className="inline-flex items-center justify-center rounded-2xl bg-[#FAF7F2] px-2 py-1 sm:px-3 sm:py-1.5 ring-1 ring-gold/40 shadow-[0_10px_30px_-15px_rgba(0,0,0,0.35)]">
       {img}
     </span>
   );

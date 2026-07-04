@@ -34,9 +34,9 @@ export function Navbar() {
         scrolled ? "glass-nav py-2" : "bg-transparent py-4"
       }`}
     >
-      <div className="container-luxe flex items-center justify-between gap-6">
+      <div className="container-luxe flex items-center justify-between gap-4 sm:gap-6">
         <Link to="/" className="flex items-center gap-3 group" aria-label="Triyash Media — Home">
-          <Logo className="h-12 md:h-14 w-auto transition-transform duration-500 group-hover:scale-105" />
+          <Logo className="h-8 sm:h-10 md:h-14 w-auto transition-transform duration-500 group-hover:scale-105" />
           <span className="hidden sm:flex flex-col leading-none">
             <span className="font-display text-xl tracking-wide text-gradient-gold">TRIYASH</span>
             <span className="eyebrow text-[0.62rem] mt-1">MEDIA</span>
@@ -82,7 +82,7 @@ export function Navbar() {
           <button
             onClick={() => setOpen((v) => !v)}
             aria-label="Menu"
-            className="lg:hidden grid place-items-center h-10 w-10 rounded-full border border-border/60"
+            className="lg:hidden grid place-items-center h-9 w-9 sm:h-10 sm:w-10 rounded-full border border-border/60"
           >
             {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
           </button>

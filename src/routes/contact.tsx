@@ -4,7 +4,7 @@ import { Facebook, Instagram, Linkedin, Mail, MapPin, MessageCircle, Phone, Yout
 import { useState } from "react";
 import { toast } from "sonner";
 
-const NOTIFY_EMAIL = import.meta.env.VITE_NOTIFY_EMAIL || "info@triyashmedia.com";
+const NOTIFY_EMAIL = import.meta.env.VITE_NOTIFY_EMAIL || "ankkitraajsingh1995@gmail.com";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -132,7 +132,7 @@ function Contact() {
               disabled={busy}
               className="w-full rounded-full bg-gold px-6 py-4 font-ui font-medium text-[var(--ink)] hover-lift disabled:opacity-70 disabled:cursor-not-allowed text-center"
             >
-              {busy ? "Sending…" : sent ? "Thanks — we'll be in touch ✦" : "Send the brief"}
+              {busy ? "Sending…" : sent ? "Thanks — we'll be in touch ✦" : "Submit your note"}
             </button>
           </form>
 

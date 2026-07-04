@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Resend } from "resend";
 import { z } from "zod";
 
 const ContactSchema = z.object({
@@ -10,8 +11,9 @@ const ContactSchema = z.object({
   message: z.string().trim().min(5).max(4000),
 });
 
-const NOTIFY_TO = process.env.CONTACT_NOTIFY_EMAIL || process.env.NOTIFY_TO || process.env.NOTIFY_EMAIL || "info@triyashmedia.com";
+const NOTIFY_TO = process.env.CONTACT_NOTIFY_EMAIL || process.env.NOTIFY_TO || process.env.NOTIFY_EMAIL || "ankkitraajsingh1995@gmail.com";
 const FROM_ADDRESS = process.env.FROM_ADDRESS || "Triyash Studio <onboarding@resend.dev>";
+const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 
 function escapeHtml(s: string) {
   return s
@@ -58,23 +60,18 @@ function confirmationHtml(data: z.infer<typeof ContactSchema>) {
 async function sendViaResend(payload: {
   from: string; to: string[]; subject: string; html: string; reply_to?: string;
 }) {
-  const RESEND_API_KEY = process.env.RESEND_API_KEY;
-  if (!RESEND_API_KEY) {
+  if (!resend) {
     throw new Error("Email is not configured yet — Resend API key is missing.");
   }
-  const res = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${RESEND_API_KEY}`,
-    },
-    body: JSON.stringify(payload),
+
+  return resend.emails.send({
+    from: payload.from,
+    to: payload.to,
+    subject: payload.subject,
+    html: payload.html,
+    replyTo: payload.reply_to,
+
   });
-  if (!res.ok) {
-    const body = await res.text();
-    throw new Error(`Email provider error (${res.status}): ${body}`);
-  }
-  return res.json();
 }
 
 export const Route = createFileRoute("/api/public/contact")({

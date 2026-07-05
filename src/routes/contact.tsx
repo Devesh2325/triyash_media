@@ -5,6 +5,9 @@ import { useState } from "react";
 import { toast } from "sonner";
 
 const NOTIFY_EMAIL = import.meta.env.VITE_NOTIFY_EMAIL || "ankkitraajsingh1995@gmail.com";
+if (!NOTIFY_EMAIL) {
+  throw new Error("Email is not configured yet — Resend API key is missing.");
+}
 
 export const Route = createFileRoute("/contact")({
   head: () => ({

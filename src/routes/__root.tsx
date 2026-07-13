@@ -115,6 +115,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     scripts: [
       {
+        async: true,
+        src: "https://real-ana-be.vercel.app/tracker.js",
+        "data-site": "jH3FDNue7ckQbrnC",
+      },
+      {
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",

@@ -10,7 +10,8 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<Theme>("dark");
 
   useEffect(() => {
-    const stored = (typeof window !== "undefined" && localStorage.getItem("tm-theme")) as Theme | null;
+    const stored = (typeof window !== "undefined" &&
+      localStorage.getItem("tm-theme")) as Theme | null;
     const initial: Theme = stored ?? "dark";
     setTheme(initial);
     document.documentElement.classList.toggle("dark", initial === "dark");
@@ -20,7 +21,11 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     setTheme((prev) => {
       const next: Theme = prev === "dark" ? "light" : "dark";
       document.documentElement.classList.toggle("dark", next === "dark");
-      try { localStorage.setItem("tm-theme", next); } catch {}
+      try {
+        localStorage.setItem("tm-theme", next);
+      } catch {
+        // Local storage may be unavailable in private browsing or restricted contexts.
+      }
       return next;
     });
   };

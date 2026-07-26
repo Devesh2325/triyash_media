@@ -54,7 +54,9 @@ export const Route = createFileRoute("/blog/$slug")({
     <div className="section container-luxe text-center">
       <p className="eyebrow">404</p>
       <h1 className="mt-4 font-display text-5xl">Post not found</h1>
-      <Link to="/blog" className="mt-6 inline-block text-gold underline">Back to Blog</Link>
+      <Link to="/blog" className="mt-6 inline-block text-gold underline">
+        Back to Blog
+      </Link>
     </div>
   ),
   errorComponent: ({ error }) => (
@@ -77,9 +79,7 @@ function renderBlock(b: PostBlock, i: number) {
     case "quote":
       return (
         <blockquote key={i} className="my-12 border-l-2 border-gold pl-6 md:pl-8">
-          <p className="font-display italic text-2xl md:text-3xl leading-snug">
-            "{b.text}"
-          </p>
+          <p className="font-display italic text-2xl md:text-3xl leading-snug">"{b.text}"</p>
           {b.cite && <cite className="mt-4 block eyebrow not-italic">— {b.cite}</cite>}
         </blockquote>
       );
@@ -109,12 +109,18 @@ function BlogPost() {
   return (
     <>
       <section className="container-luxe pt-16 pb-8 max-w-3xl">
-        <Link to="/blog" className="eyebrow text-gold hover:opacity-80">← Blog</Link>
+        <Link to="/blog" className="eyebrow text-gold hover:opacity-80">
+          ← Blog
+        </Link>
         <p className="eyebrow mt-8">{post.category}</p>
         <h1 className="mt-4 font-display text-4xl md:text-6xl leading-[1.05]">{post.title}</h1>
         <div className="mt-8 flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
-          <span className="flex items-center gap-2"><Calendar className="h-4 w-4 text-gold" /> {post.date}</span>
-          <span className="flex items-center gap-2"><Clock className="h-4 w-4 text-gold" /> {post.readMinutes} min read</span>
+          <span className="flex items-center gap-2">
+            <Calendar className="h-4 w-4 text-gold" /> {post.date}
+          </span>
+          <span className="flex items-center gap-2">
+            <Clock className="h-4 w-4 text-gold" /> {post.readMinutes} min read
+          </span>
           <span>· by {post.author}</span>
         </div>
       </section>
@@ -139,15 +145,25 @@ function BlogPost() {
             {related.map((p) => (
               <Link key={p.slug} to="/blog/$slug" params={{ slug: p.slug }} className="group">
                 <div className="overflow-hidden rounded-2xl aspect-[4/3]">
-                  <img src={p.cover} alt={p.title} loading="lazy" className="h-full w-full object-cover transition-transform duration-[1.2s] group-hover:scale-110" />
+                  <img
+                    src={p.cover}
+                    alt={p.title}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-[1.2s] group-hover:scale-110"
+                  />
                 </div>
                 <p className="mt-4 eyebrow">{p.category}</p>
-                <h3 className="mt-2 font-display text-xl group-hover:text-gold transition-colors">{p.title}</h3>
+                <h3 className="mt-2 font-display text-xl group-hover:text-gold transition-colors">
+                  {p.title}
+                </h3>
               </Link>
             ))}
           </div>
           <div className="mt-16 text-center">
-            <Link to="/contact" className="inline-flex items-center gap-2 rounded-full bg-gold px-8 py-4 font-ui font-medium text-[var(--ink)] hover-lift">
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 rounded-full bg-gold px-8 py-4 font-ui font-medium text-[var(--ink)] hover-lift"
+            >
               Start a project <ArrowUpRight className="h-4 w-4" />
             </Link>
           </div>

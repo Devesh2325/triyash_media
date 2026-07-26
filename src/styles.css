@@ -1,7 +1,5 @@
 @import "tailwindcss" source(none);
 @import "tw-animate-css";
-
-
 @source "../src";
 @custom-variant dark (&:is(.dark *));
 
@@ -242,5 +240,6 @@
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
-.animate-float { animation: float-slow 6s ease-in-out infinite; }
-.animate-marquee { animation: marquee 40s linear infinite; }
+.animate-float { animation: float-slow 01s ease-in-out infinite;}
+.animate-marquee { animation: marquee 10s linear infinite; }
+.marquee:hover { animation-play-state: paused; }

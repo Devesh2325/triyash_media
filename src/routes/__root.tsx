@@ -79,7 +79,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Triyash Media — Cinematic Films, Brands & Growth" },
-      { name: "description", content: "Triyash Media is a luxury creative house crafting cinematic films, photography, brands and digital growth for hospitality and lifestyle." },
+      {
+        name: "description",
+        content:
+          "Triyash Media is a luxury creative house crafting cinematic films, photography, brands and digital growth for hospitality and lifestyle.",
+      },
       { name: "author", content: "Triyash Media" },
       { name: "theme-color", content: "#162033" },
       { property: "og:title", content: "Triyash Media — Cinematic Films, Brands & Growth" },
@@ -92,13 +96,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:description", content: "We don't just create content. We build brands." },
     ],
     links: [
-      {        rel: "icon",
-        href: "/favicon.svg",
-        type: "image/svg+xml",
-      },
-      {        rel: "stylesheet",
-        href: appCss,
-      },
+      { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
+      { rel: "stylesheet", href: appCss },
       {
         rel: "preconnect",
         href: "https://fonts.googleapis.com",
@@ -125,7 +124,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@context": "https://schema.org",
           "@type": "Organization",
           name: "Triyash Media",
-          description: "Luxury creative agency for cinematic films, photography, branding, web and growth.",
+          description:
+            "Luxury creative agency for cinematic films, photography, branding, web and growth.",
           email: "info@triyashmedia.com",
           telephone: "+91 86790 07159",
           areaServed: "Worldwide",
@@ -133,7 +133,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
             "https://www.instagram.com/triyashmedia1/",
             "https://youtube.com/@triyashmedia",
             "https://www.linkedin.com/in/ankit-singh-49955a3a7/",
-            "https://www.facebook.com/share/1Czy5CiZWg/"
+            "https://www.facebook.com/share/1Czy5CiZWg/",
           ],
           address: {
             "@type": "PostalAddress",
@@ -146,7 +146,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
   }),
   shellComponent: RootShell,
-  component: RootComponent, 
+  component: RootComponent,
   notFoundComponent: NotFoundComponent,
   errorComponent: ErrorComponent,
 });

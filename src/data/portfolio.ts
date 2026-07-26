@@ -5,15 +5,39 @@ import workRealestate from "@/assets/work-realestate.jpg";
 import workEditing from "@/assets/work-editing.jpg";
 import workEvent from "@/assets/work-event.jpg";
 import heroFilm from "@/assets/hero-film.jpg";
+import shiv1 from "@/assets/Shiv_1.jpeg";
+import shiv2 from "@/assets/Shiv_2.jpeg";
+import shiv4 from "@/assets/Shiv_4.jpeg";
+import shiv5 from "@/assets/Shiv_5.jpeg";
+import shiv6 from "@/assets/Shiv_6.png";
+import shivAndGanesh from "@/assets/Shiv & Ganesh.jpeg";
+import reels1 from "@/assets/reels_1.mp4";
+
+export type GalleryItem =
+  | string
+  | { type: "video"; src: string; poster?: string; label: string };
+
+export type PortfolioMediaItem =
+  | { type?: "image"; src: string; label: string }
+  | { type: "video"; src: string; poster?: string; label: string };
 
 export type CaseStudy = {
   slug: string;
   title: string;
   client: string;
-  category: "Hospitality" | "Drone" | "Restaurants" | "Real Estate" | "Post" | "Events" | "Films";
+  category:
+    | "Hospitality"
+    | "Drone"
+    | "Restaurants"
+    | "Real Estate"
+    | "Post"
+    | "Events"
+    | "Films"
+    | "AI Upcoming";
   meta: string;
   cover: string;
-  gallery: string[];
+  gallery: GalleryItem[];
+  portfolioMedia?: PortfolioMediaItem[];
   brief: string;
   approach: string[];
   deliverables: string[];
@@ -25,6 +49,45 @@ export type CaseStudy = {
 };
 
 export const CASES: CaseStudy[] = [
+  {
+    slug: "shiv-ganesh-ai-series",
+    title: "Shiv & Ganesh — an AI visual series.",
+    client: "Triyash Media · Upcoming",
+    category: "AI Upcoming",
+    meta: "AI visuals · Concept development · Coming soon",
+    cover: shivAndGanesh,
+    gallery: [shivAndGanesh, shiv1, shiv2, shiv4, shiv5, shiv6],
+    portfolioMedia: [
+      { src: shivAndGanesh, label: "Shiv & Ganesh" },
+      { src: shiv1, label: "Shiv I" },
+      { src: shiv2, label: "Shiv II" },
+      { src: shiv4, label: "Shiv IV" },
+      { src: shiv5, label: "Shiv V" },
+      { src: shiv6, label: "Shiv VI" },
+    ],
+    brief:
+      "An upcoming AI visual series inspired by the timeless iconography of Shiv and Ganesh. The project explores a cinematic, contemporary treatment while respecting the visual language of its source material.",
+    approach: [
+      "Developing a distinct visual direction for the series.",
+      "Curating each AI-generated frame into a cohesive collection.",
+      "Preparing the final presentation for the upcoming release.",
+    ],
+    deliverables: [
+      "AI visual concept series",
+      "Curated final image collection",
+      "Digital launch presentation",
+    ],
+    results: [
+      { value: "Soon", label: "Project release" },
+      { value: "6", label: "Preview visuals" },
+      { value: "AI", label: "Creative medium" },
+      { value: "2026", label: "Upcoming series" },
+    ],
+    year: "2026",
+    seoTitle: "Shiv & Ganesh AI Visual Series — Triyash Media",
+    seoDescription:
+      "An upcoming AI visual series from Triyash Media, inspired by Shiv and Ganesh.",
+  },
   {
     slug: "maison-lumiere",
     title: "Maison Lumière — a hotel rewritten in light.",
@@ -207,7 +270,17 @@ export const CASES: CaseStudy[] = [
     category: "Post",
     meta: "Editing · Colour grade · Sound",
     cover: workEditing,
-    gallery: [workEditing, workRestaurant, heroFilm, workHotel],
+    gallery: [
+      { type: "video", src: reels1, poster: workEditing, label: "Colour & Craft reel" },
+      workEditing,
+      workRestaurant,
+      heroFilm,
+      workHotel,
+    ],
+    portfolioMedia: [
+      { type: "video", src: reels1, poster: workEditing, label: "Colour & Craft reel" },
+      { src: workEditing, label: "Colour & Craft still" },
+    ],
     brief:
       "A behind-the-scenes look at the post-production discipline that separates our films from the rest — how we approach editing, colour and sound as a system, not three separate departments.",
     approach: [

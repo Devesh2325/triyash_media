@@ -109,7 +109,10 @@ export function Navbar() {
                 {item.label}
               </Link>
             ))}
-            <Link to="/contact" className="mt-3 inline-flex justify-center rounded-full bg-gold py-3 font-ui font-medium text-[var(--ink)]">
+            <Link
+              to="/contact"
+              className="mt-3 inline-flex justify-center rounded-full bg-gold py-3 font-ui font-medium text-[var(--ink)]"
+            >
               Start a project
             </Link>
           </nav>

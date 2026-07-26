@@ -16,7 +16,11 @@ export const Route = createFileRoute("/blog")({
   head: () => ({
     meta: [
       { title: "Blog — Triyash Media" },
-      { name: "description", content: "Field notes on cinema, brand strategy, hospitality marketing and creative craft from the Triyash Media studio." },
+      {
+        name: "description",
+        content:
+          "Field notes on cinema, brand strategy, hospitality marketing and creative craft from the Triyash Media studio.",
+      },
       { property: "og:type", content: "website" },
       { property: "og:title", content: "Blog — Triyash Media" },
       { property: "og:description", content: "Field notes on cinema, brand and culture." },
@@ -55,7 +59,12 @@ function Blog() {
     <>
       <PageHeader
         eyebrow="Blog"
-        title={<>Field notes on cinema, brand and <span className="text-gradient-gold italic">culture</span>.</>}
+        title={
+          <>
+            Field notes on cinema, brand and{" "}
+            <span className="text-gradient-gold italic">culture</span>.
+          </>
+        }
         copy="Monthly essays from the studio on craft, hospitality, branding and the business of building beautiful things."
       />
       <section className="container-luxe pb-8">
@@ -66,17 +75,29 @@ function Blog() {
             className="group grid lg:grid-cols-2 gap-8 lg:gap-12 mb-16 items-center"
           >
             <div className="overflow-hidden rounded-3xl aspect-[4/3]">
-              <img src={featured.cover} alt={featured.title} className="h-full w-full object-cover transition-transform duration-[1.2s] group-hover:scale-105" />
+              <img
+                src={featured.cover}
+                alt={featured.title}
+                className="h-full w-full object-cover transition-transform duration-[1.2s] group-hover:scale-105"
+              />
             </div>
             <div>
               <span className="eyebrow">Featured · {featured.category}</span>
               <h2 className="mt-5 font-display text-3xl md:text-5xl leading-[1.1] group-hover:text-gold transition-colors">
                 {featured.title}
               </h2>
-              <p className="mt-5 text-lg text-muted-foreground leading-relaxed">{featured.excerpt}</p>
+              <p className="mt-5 text-lg text-muted-foreground leading-relaxed">
+                {featured.excerpt}
+              </p>
               <div className="mt-6 flex items-center gap-4 text-sm text-muted-foreground">
-                <span className="flex items-center gap-2"><Calendar className="h-4 w-4 text-gold" />{featured.date}</span>
-                <span className="flex items-center gap-2"><Clock className="h-4 w-4 text-gold" />{featured.readMinutes} min read</span>
+                <span className="flex items-center gap-2">
+                  <Calendar className="h-4 w-4 text-gold" />
+                  {featured.date}
+                </span>
+                <span className="flex items-center gap-2">
+                  <Clock className="h-4 w-4 text-gold" />
+                  {featured.readMinutes} min read
+                </span>
               </div>
               <span className="mt-8 inline-flex items-center gap-2 text-gold font-ui text-sm">
                 Read the essay <ArrowRight className="h-4 w-4" />
@@ -89,21 +110,35 @@ function Blog() {
           {rest.map((p) => (
             <Link key={p.slug} to="/blog/$slug" params={{ slug: p.slug }} className="group">
               <div className="overflow-hidden rounded-3xl aspect-[4/3]">
-                <img src={p.cover} alt={p.title} loading="lazy" className="h-full w-full object-cover transition-transform duration-[1.2s] group-hover:scale-110" />
+                <img
+                  src={p.cover}
+                  alt={p.title}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-[1.2s] group-hover:scale-110"
+                />
               </div>
               <div className="mt-5 flex items-center gap-3 text-xs">
                 <span className="eyebrow">{p.category}</span>
-                <span className="text-muted-foreground">{p.date} · {p.readMinutes} min</span>
+                <span className="text-muted-foreground">
+                  {p.date} · {p.readMinutes} min
+                </span>
               </div>
-              <h2 className="mt-3 font-display text-2xl md:text-3xl group-hover:text-gold transition-colors leading-snug">{p.title}</h2>
-              <p className="mt-3 text-sm text-muted-foreground leading-relaxed line-clamp-2">{p.excerpt}</p>
+              <h2 className="mt-3 font-display text-2xl md:text-3xl group-hover:text-gold transition-colors leading-snug">
+                {p.title}
+              </h2>
+              <p className="mt-3 text-sm text-muted-foreground leading-relaxed line-clamp-2">
+                {p.excerpt}
+              </p>
             </Link>
           ))}
         </div>
       </section>
 
       <section className="container-luxe pb-24 pt-8">
-        <nav className="flex items-center justify-between gap-4 border-t border-border/40 pt-8" aria-label="Pagination">
+        <nav
+          className="flex items-center justify-between gap-4 border-t border-border/40 pt-8"
+          aria-label="Pagination"
+        >
           {current > 1 ? (
             <Link
               to="/blog"
@@ -112,8 +147,12 @@ function Blog() {
             >
               <ArrowLeft className="h-4 w-4" /> Newer
             </Link>
-          ) : <span />}
-          <p className="eyebrow text-[0.65rem]">Page {current} of {totalPages}</p>
+          ) : (
+            <span />
+          )}
+          <p className="eyebrow text-[0.65rem]">
+            Page {current} of {totalPages}
+          </p>
           {current < totalPages ? (
             <Link
               to="/blog"
@@ -122,7 +161,9 @@ function Blog() {
             >
               Older <ArrowRight className="h-4 w-4" />
             </Link>
-          ) : <span />}
+          ) : (
+            <span />
+          )}
         </nav>
       </section>
     </>

@@ -10,8 +10,8 @@ export function Footer() {
         <div>
           <Logo className="h-16 md:h-20 w-auto" />
           <p className="mt-5 max-w-xs text-sm leading-relaxed text-muted-foreground">
-            Triyash Media is a luxury creative house crafting cinematic stories,
-            world-class brands and growth systems for hospitality, lifestyle and ambition.
+            Triyash Media is a luxury creative house crafting cinematic stories, world-class brands
+            and growth systems for hospitality, lifestyle and ambition.
           </p>
           <div className="mt-6 flex gap-3">
             <a
@@ -67,7 +67,9 @@ export function Footer() {
               ["Contact", "/contact"],
             ].map(([label, to]) => (
               <li key={to}>
-                <Link to={to} className="hover:text-gold transition-colors">{label}</Link>
+                <Link to={to} className="hover:text-gold transition-colors">
+                  {label}
+                </Link>
               </li>
             ))}
           </ul>
@@ -76,15 +78,23 @@ export function Footer() {
         <div>
           <p className="eyebrow mb-5">Craft</p>
           <ul className="space-y-3 text-sm text-foreground/80">
-            {["Film & Documentary", "Photography", "Branding", "Web Design", "SEO & Growth", "Hospitality Marketing"].map((s) => (
-              <li key={s} className="hover:text-gold transition-colors">{s}</li>
+            {[
+              "Film & Documentary",
+              "Photography",
+              "Branding",
+              "Web Design",
+              "SEO & Growth",
+              "Hospitality Marketing",
+            ].map((s) => (
+              <li key={s} className="hover:text-gold transition-colors">
+                {s}
+              </li>
             ))}
           </ul>
         </div>
 
-    
-    {/* This is now not working so now its hide */}
-    {/* 
+        {/* This is now not working so now its hide */}
+        {/* 
    <div>
           <p className="eyebrow mb-5">Stay in the frame</p>
           <p className="text-sm text-muted-foreground mb-4">
@@ -102,9 +112,15 @@ export function Footer() {
 
         <div>
           <ul className="mt-6 space-y-2.5 text-sm text-muted-foreground">
-            <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-gold" /> +91 86790 07159</li>
-            <li className="flex items-center gap-2"><Mail className="h-4 w-4 text-gold" /> info@triyashmedia.com</li>
-            <li className="flex items-center gap-2"><MapPin className="h-4 w-4 text-gold" /> Mumbai Andheri</li>
+            <li className="flex items-center gap-2">
+              <Phone className="h-4 w-4 text-gold" /> +91 86790 07159
+            </li>
+            <li className="flex items-center gap-2">
+              <Mail className="h-4 w-4 text-gold" /> info@triyashmedia.com
+            </li>
+            <li className="flex items-center gap-2">
+              <MapPin className="h-4 w-4 text-gold" /> Mumbai Andheri West
+            </li>
           </ul>
         </div>
       </div>
@@ -114,8 +130,12 @@ export function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
           <p>© {new Date().getFullYear()} Triyash Media. Crafted with intention.</p>
           <div className="flex gap-5">
-            <Link to="/privacy" className="hover:text-gold">Privacy Policy</Link>
-            <Link to="/terms" className="hover:text-gold">Terms & Conditions</Link>
+            <Link to="/privacy" className="hover:text-gold">
+              Privacy Policy
+            </Link>
+            <Link to="/terms" className="hover:text-gold">
+              Terms & Conditions
+            </Link>
           </div>
         </div>
       </div>

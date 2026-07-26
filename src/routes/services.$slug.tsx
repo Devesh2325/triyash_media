@@ -53,7 +53,9 @@ export const Route = createFileRoute("/services/$slug")({
     <div className="section container-luxe text-center">
       <p className="eyebrow">404</p>
       <h1 className="mt-4 font-display text-5xl">Service not found</h1>
-      <Link to="/services" className="mt-6 inline-block text-gold underline">Back to all services</Link>
+      <Link to="/services" className="mt-6 inline-block text-gold underline">
+        Back to all services
+      </Link>
     </div>
   ),
   errorComponent: ({ error }) => (
@@ -77,7 +79,9 @@ function ServiceDetail() {
           <div className="absolute inset-0 bg-gradient-to-b from-[var(--ink)]/70 via-[var(--ink)]/60 to-[var(--background)]" />
         </div>
         <div className="container-luxe pt-32 pb-24 md:pt-40 md:pb-32 text-[var(--cream)]">
-          <Link to="/services" className="eyebrow text-gold hover:opacity-80">← All services</Link>
+          <Link to="/services" className="eyebrow text-gold hover:opacity-80">
+            ← All services
+          </Link>
           <p className="eyebrow mt-8 text-gold">{service.eyebrow}</p>
           <h1 className="mt-4 font-display text-5xl md:text-7xl leading-[1.05] max-w-4xl">
             {service.title}
@@ -144,9 +148,13 @@ function ServiceDetail() {
           <div>
             <h2 className="font-display text-4xl md:text-5xl">Ready to talk?</h2>
             <p className="mt-4 text-muted-foreground max-w-md">
-              Every engagement starts with a single call. Tell us about your brand, your goal, your timeline.
+              Every engagement starts with a single call. Tell us about your brand, your goal, your
+              timeline.
             </p>
-            <Link to="/contact" className="mt-7 inline-flex items-center gap-2 rounded-full bg-gold px-8 py-4 font-ui font-medium text-[var(--ink)] hover-lift">
+            <Link
+              to="/contact"
+              className="mt-7 inline-flex items-center gap-2 rounded-full bg-gold px-8 py-4 font-ui font-medium text-[var(--ink)] hover-lift"
+            >
               Start a project <ArrowUpRight className="h-4 w-4" />
             </Link>
           </div>
@@ -160,7 +168,9 @@ function ServiceDetail() {
                     params={{ slug: o.slug }}
                     className="group flex items-center justify-between gap-4 border-b border-border/50 pb-3 hover:border-gold transition-colors"
                   >
-                    <span className="font-display text-xl group-hover:text-gold transition-colors">{o.title}</span>
+                    <span className="font-display text-xl group-hover:text-gold transition-colors">
+                      {o.title}
+                    </span>
                     <ArrowUpRight className="h-4 w-4 text-gold" />
                   </Link>
                 </li>

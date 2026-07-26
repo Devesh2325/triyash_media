@@ -11,7 +11,11 @@ const ContactSchema = z.object({
   message: z.string().trim().min(5).max(4000),
 });
 
-const NOTIFY_TO = process.env.CONTACT_NOTIFY_EMAIL || process.env.NOTIFY_TO || process.env.NOTIFY_EMAIL || "ankkitraajsingh1995@gmail.com";
+const NOTIFY_TO =
+  process.env.CONTACT_NOTIFY_EMAIL ||
+  process.env.NOTIFY_TO ||
+  process.env.NOTIFY_EMAIL ||
+  "ankkitraajsingh1995@gmail.com";
 const FROM_ADDRESS = process.env.FROM_ADDRESS || "Triyash Studio <onboarding@resend.dev>";
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 
@@ -53,12 +57,16 @@ function confirmationHtml(data: z.infer<typeof ContactSchema>) {
       In the meantime — if it's urgent — reply to this email or reach us on WhatsApp at <strong>+91 86790 07159</strong>.
     </p>
     <hr style="border:none;border-top:1px solid #e5ddc8;margin:32px 0" />
-    <p style="color:#666;margin:0;font-size:13px">Triyash Media ·Mumbai Andheri<br/>info@triyashmedia.com</p>
+    <p style="color:#666;margin:0;font-size:13px">Triyash Media ·Mumbai Andheri West<br/>info@triyashmedia.com</p>
   </div>`;
 }
 
 async function sendViaResend(payload: {
-  from: string; to: string[]; subject: string; html: string; reply_to?: string;
+  from: string;
+  to: string[];
+  subject: string;
+  html: string;
+  reply_to?: string;
 }) {
   if (!resend) {
     throw new Error("Email is not configured yet — Resend API key is missing.");
@@ -70,7 +78,6 @@ async function sendViaResend(payload: {
     subject: payload.subject,
     html: payload.html,
     replyTo: payload.reply_to,
-
   });
 }
 
@@ -123,10 +130,10 @@ export const Route = createFileRoute("/api/public/contact")({
         } catch (err) {
           console.error("[contact] failed:", err);
           const msg = err instanceof Error ? err.message : "Unknown error";
-          return new Response(
-            JSON.stringify({ ok: false, error: msg }),
-            { status: 500, headers: cors },
-          );
+          return new Response(JSON.stringify({ ok: false, error: msg }), {
+            status: 500,
+            headers: cors,
+          });
         }
       },
     },

@@ -5,10 +5,11 @@ import tsconfigPaths from "vite-tsconfig-paths";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import { nitro } from "nitro/vite";
 
+
 export default defineConfig({
-  plugins: [
+   plugins: [
     tsconfigPaths(),
-    tailwindcss(),
+     tailwindcss(),
     tanstackStart({
       server: { entry: "server" },
     }),

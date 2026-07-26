@@ -46,18 +46,34 @@ export const SERVICES: Service[] = [
     intro:
       "We produce brand films, documentaries and short films for hospitality, lifestyle and lifestyle-adjacent brands. Every frame is directed, lit and graded like a feature — because your audience decides in six seconds whether to keep watching.",
     offerings: [
-      "Brand & corporate films",
-      "Documentary storytelling",
-      "Short films & web series",
-      "Music videos & artist films",
-      "Promotional & launch films",
-      "Founder & culture stories",
+      "Feature Film Production",
+      "Web Series Production",
+      "Documentary Film Production",
+      "Script Writing",
+      "Founder & Culture Stories",
+      "Cinematography",
+      "Film Direction",
+      "Post Production",
+      "Brand Films",
+      "Corporate Films",
     ],
     process: [
-      { title: "Discovery", copy: "A single call to map the story, the audience and the frames only you can own." },
-      { title: "Pre-production", copy: "Treatment, storyboard, casting, locations, schedule. Nothing improvised on set." },
-      { title: "Direction", copy: "Cinema cameras, cinematic lighting, a director who's shot for the world's most-loved brands." },
-      { title: "Post", copy: "Edit, sound design, colour grade and delivery in every ratio your channels need." },
+      {
+        title: "Discovery",
+        copy: "A single call to map the story, the audience and the frames only you can own.",
+      },
+      {
+        title: "Pre-production",
+        copy: "Treatment, storyboard, casting, locations, schedule. Nothing improvised on set.",
+      },
+      {
+        title: "Direction",
+        copy: "Cinema cameras, cinematic lighting, a director who's shot for the world's most-loved brands.",
+      },
+      {
+        title: "Post",
+        copy: "Edit, sound design, colour grade and delivery in every ratio your channels need.",
+      },
     ],
     outcomes: [
       "12M+ combined views across delivered brand films",
@@ -68,7 +84,7 @@ export const SERVICES: Service[] = [
     seoDescription:
       "Cinematic brand films, documentaries and short films for hospitality and lifestyle brands. Direction, cinematography, edit and colour under one roof.",
   },
-  {
+  /* {
     slug: "photography",
     title: "Photography",
     tagline: "Stills that carry your brand for the next five years.",
@@ -163,11 +179,11 @@ export const SERVICES: Service[] = [
     seoTitle: "Branding & Identity Design — Triyash Media",
     seoDescription:
       "Brand strategy, logo design, identity systems and guidelines for founders, hotels and lifestyle brands. Built to hold value.",
-  },
+  },*/
   {
     slug: "website-development",
     title: "Website Development",
-    tagline: "Websites that convert on a phone in 3 seconds.",
+    tagline: "Websites that convert on day one and rank for years.",
     eyebrow: "Web",
     cover: serviceWeb,
     icon: Globe,
@@ -182,10 +198,19 @@ export const SERVICES: Service[] = [
       "Ongoing maintenance & care",
     ],
     process: [
-      { title: "Architecture", copy: "Sitemap, key journeys and conversion goals mapped before design." },
+      {
+        title: "Architecture",
+        copy: "Sitemap, key journeys and conversion goals mapped before design.",
+      },
       { title: "Design", copy: "Editorial art direction. Typography treated like a brand asset." },
-      { title: "Build", copy: "Modern React stack. 95+ Lighthouse. CMS your team can actually run." },
-      { title: "Care", copy: "Uptime monitoring, performance reviews and quarterly content refreshes." },
+      {
+        title: "Build",
+        copy: "Modern React stack. 95+ Lighthouse. CMS your team can actually run.",
+      },
+      {
+        title: "Care",
+        copy: "Uptime monitoring, performance reviews and quarterly content refreshes.",
+      },
     ],
     outcomes: [
       "Average Lighthouse: 96 · 98 · 100 · 100",
@@ -195,7 +220,7 @@ export const SERVICES: Service[] = [
     seoTitle: "Website Design & Development — Triyash Media",
     seoDescription:
       "Cinematic, high-converting websites for hotels, studios and premium brands. Lightning-fast, SEO-first, hand-crafted.",
-  },
+  } /*
   {
     slug: "seo-and-content",
     title: "SEO & Content",
@@ -259,10 +284,10 @@ export const SERVICES: Service[] = [
     seoTitle: "Social Media Management — Triyash Media",
     seoDescription:
       "Instagram, LinkedIn and YouTube management for premium brands. Editorial content, disciplined publishing, real growth.",
-  },
+  },*/,
   {
-    slug: "digital-advertising",
-    title: "Digital Advertising",
+    slug: "ai-powered-cinema",
+    title: "AI Powered Cinema",
     tagline: "Meta, Google and YouTube — profitably.",
     eyebrow: "Paid",
     cover: serviceAds,
@@ -270,17 +295,25 @@ export const SERVICES: Service[] = [
     intro:
       "Performance advertising for hotels, D2C brands and services. Creative-led, tightly measured, and reported honestly — including when we recommend spending less.",
     offerings: [
-      "Meta Ads (Instagram + Facebook)",
-      "Google Search & Performance Max",
-      "YouTube pre-roll & shorts ads",
-      "Launch & seasonal campaigns",
-      "Creative production for paid",
-      "Landing page optimisation",
+      "AI Advertising Films",
+      "AI Corporation Films",
+      "AI Motion Comics",
+      "AI Micro Dramas / Vertical Series",
+      "AI Mythological Visualizations",
     ],
     process: [
-      { title: "Setup", copy: "Pixel, conversions API, attribution and creative library — properly plumbed." },
-      { title: "Creative", copy: "Ads produced from your existing brand assets. Every hook tested." },
-      { title: "Launch", copy: "Structured campaigns, budget guardrails, and honest daily monitoring." },
+      {
+        title: "Setup",
+        copy: "Pixel, conversions API, attribution and creative library — properly plumbed.",
+      },
+      {
+        title: "Creative",
+        copy: "Ads produced from your existing brand assets. Every hook tested.",
+      },
+      {
+        title: "Launch",
+        copy: "Structured campaigns, budget guardrails, and honest daily monitoring.",
+      },
       { title: "Scale", copy: "Weekly optimisation. Kill losers fast. Compound the winners." },
     ],
     outcomes: [
@@ -292,6 +325,7 @@ export const SERVICES: Service[] = [
     seoDescription:
       "Performance advertising for hotels, D2C and premium services. Creative-led, tightly measured, ROAS-obsessed.",
   },
+  /*
   {
     slug: "business-growth",
     title: "Business Growth & Consulting",
@@ -323,7 +357,7 @@ export const SERVICES: Service[] = [
     seoTitle: "Business Growth Consulting — Triyash Media",
     seoDescription:
       "Long-term brand and growth partnership for founders scaling from local brand to national name. Monthly retainer, weekly rituals, quarterly OKRs.",
-  },
+  },*/
 ];
 
 export function getService(slug: string) {

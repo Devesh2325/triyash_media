@@ -7,7 +7,11 @@ export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
       { title: "Services — Triyash Media" },
-      { name: "description", content: "Nine disciplines under one cinematic roof — film, photography, videography, branding, web, SEO, social, advertising and growth consulting." },
+      {
+        name: "description",
+        content:
+          "Nine disciplines under one cinematic roof — film, photography, videography, branding, web, SEO, social, advertising and growth consulting.",
+      },
       { property: "og:type", content: "website" },
       { property: "og:title", content: "Services — Triyash Media" },
       { property: "og:description", content: "A full creative studio under one cinematic roof." },
@@ -44,7 +48,11 @@ function Services() {
     <>
       <PageHeader
         eyebrow="Capabilities"
-        title={<>From a single frame to a <span className="text-gradient-gold italic">whole brand</span>.</>}
+        title={
+          <>
+            From a single frame to a <span className="text-gradient-gold italic">whole brand</span>.
+          </>
+        }
         copy="Nine disciplines, one studio. Engage us for a specific service or as your long-term creative partner — every engagement is bespoke."
       />
       <section className="section pt-4">
@@ -62,13 +70,14 @@ function Services() {
               <h3 className="mt-5 font-display text-2xl">{title}</h3>
               <p className="mt-2 text-sm text-muted-foreground italic leading-relaxed">{tagline}</p>
               <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-                {offerings.slice(0, 5).map((i) => (
+                {offerings.slice(0, 10).map((i) => (
                   <li key={i} className="flex items-start gap-2">
-                    <span className="mt-2 h-1 w-1 rounded-full bg-gold shrink-0" />{i}
+                    <span className="mt-2 h-1 w-1 rounded-full bg-gold shrink-0" />
+                    {i}
                   </li>
                 ))}
               </ul>
-              <span className="mt-6 inline-flex items-center gap-1 text-sm text-gold group-hover:gap-2 transition-all">
+              <span className="mt-4 inline-flex items-center gap-1 text-sm text-gold group-hover:gap-2 transition-all">
                 Read more <ArrowUpRight className="h-4 w-4" />
               </span>
             </Link>
@@ -78,8 +87,13 @@ function Services() {
       <section className="section">
         <div className="container-luxe text-center">
           <h2 className="font-display text-4xl md:text-5xl">Not sure which service fits?</h2>
-          <p className="mt-4 text-muted-foreground">Send us a note — we'll architect the right engagement around your goal.</p>
-          <Link to="/contact" className="mt-7 inline-flex items-center gap-2 rounded-full bg-gold px-8 py-4 font-ui font-medium text-[var(--ink)] hover-lift">
+          <p className="mt-4 text-muted-foreground">
+            Send us a note — we'll architect the right engagement around your goal.
+          </p>
+          <Link
+            to="/contact"
+            className="mt-7 inline-flex items-center gap-2 rounded-full bg-gold px-8 py-4 font-ui font-medium text-ink hover-lift"
+          >
             Talk to the studio <ArrowUpRight className="h-4 w-4" />
           </Link>
         </div>

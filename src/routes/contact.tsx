@@ -1,6 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader } from "@/components/site/PageHeader";
-import { Facebook, Instagram, Linkedin, Mail, MapPin, MessageCircle, Phone, Youtube } from "lucide-react";
+import {
+  Facebook,
+  Instagram,
+  Linkedin,
+  Mail,
+  MapPin,
+  MessageCircle,
+  Phone,
+  Youtube,
+  type LucideIcon,
+} from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 
@@ -13,7 +23,11 @@ export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact — Triyash Media" },
-      { name: "description", content: "Start a project with Triyash Media. Cinematic films, brand and growth — replies within one business day." },
+      {
+        name: "description",
+        content:
+          "Start a project with Triyash Media. Cinematic films, brand and growth — replies within one business day.",
+      },
       { property: "og:type", content: "website" },
       { property: "og:title", content: "Contact · Triyash Media" },
       { property: "og:description", content: "Tell us about your studio, hotel or idea." },
@@ -31,7 +45,7 @@ export const Route = createFileRoute("/contact")({
           "@type": "ContactPage",
           name: "Contact — Triyash Media",
           url: "/contact",
-            contactPoint: {
+          contactPoint: {
             "@type": "ContactPoint",
             email: NOTIFY_EMAIL,
             telephone: "+91 86790 07159",
@@ -71,14 +85,18 @@ function Contact() {
       });
       const json = (await res.json().catch(() => ({}))) as { ok?: boolean; error?: string };
       if (!res.ok || !json.ok) {
-        throw new Error(json.error || "We couldn't send your message. Please try again in a moment.");
+        throw new Error(
+          json.error || "We couldn't send your message. Please try again in a moment.",
+        );
       }
       setSent(true);
       form.reset();
       toast.success("Your note has landed at the studio. We'll reply within one business day.");
     } catch (err) {
       // Graceful fallback: open the user's email client with the message pre-filled.
-      const subject = encodeURIComponent(`New enquiry from ${payload.name}${payload.company ? ` · ${payload.company}` : ""}`);
+      const subject = encodeURIComponent(
+        `New enquiry from ${payload.name}${payload.company ? ` · ${payload.company}` : ""}`,
+      );
       const body = encodeURIComponent(
         `Name: ${payload.name}\nEmail: ${payload.email}\nCompany: ${payload.company}\nPhone: ${payload.phone}\nInterest: ${payload.service}\n\n${payload.message}`,
       );
@@ -95,15 +113,16 @@ function Contact() {
     <>
       <PageHeader
         eyebrow="Let's talk"
-        title={<>Tell us about your <span className="text-gradient-gold italic">next chapter</span>.</>}
+        title={
+          <>
+            Tell us about your <span className="text-gradient-gold italic">next chapter</span>.
+          </>
+        }
         copy="A thoughtful note beats a contact-form ping. Share what you're building and we'll reply within one business day."
       />
       <section className="section pt-4">
         <div className="container-luxe grid grid-cols-1 gap-10 lg:grid-cols-[1.4fr_1fr] lg:gap-12">
-          <form
-            onSubmit={onSubmit}
-            className="glass rounded-3xl p-6 md:p-10 space-y-5"
-          >
+          <form onSubmit={onSubmit} className="glass rounded-3xl p-6 md:p-10 space-y-5">
             <div className="grid md:grid-cols-2 gap-5">
               <Field label="Your name" name="name" placeholder="Aanya Sethi" />
               <Field label="Email" name="email" type="email" placeholder="you@studio.com" />
@@ -114,8 +133,19 @@ function Contact() {
             </div>
             <div>
               <label className="block eyebrow mb-2">Service of interest</label>
-              <select name="service" className="w-full rounded-2xl bg-background/40 border border-border/60 px-4 py-3.5 text-sm outline-none focus:border-gold">
-                {["Film & Documentary", "Photography", "Branding", "Website", "SEO & Growth", "Hospitality Marketing", "Not sure yet"].map((s) => (
+              <select
+                name="service"
+                className="w-full rounded-2xl bg-background/40 border border-border/60 px-4 py-3.5 text-sm outline-none focus:border-gold"
+              >
+                {[
+                  "Film & Documentary",
+                  "Photography",
+                  "Branding",
+                  "Website",
+                  "SEO & Growth",
+                  "Hospitality Marketing",
+                  "Not sure yet",
+                ].map((s) => (
                   <option key={s}>{s}</option>
                 ))}
               </select>
@@ -133,7 +163,7 @@ function Contact() {
             <button
               type="submit"
               disabled={busy}
-              className="w-full rounded-full bg-gold px-6 py-4 font-ui font-medium text-[var(--ink)] hover-lift disabled:opacity-70 disabled:cursor-not-allowed text-center"
+              className="w-full rounded-full bg-gold px-6 py-4 font-ui font-medium text-ink hover-lift disabled:opacity-70 disabled:cursor-not-allowed text-center"
             >
               {busy ? "Sending…" : sent ? "Thanks — we'll be in touch ✦" : "Submit your note"}
             </button>
@@ -142,27 +172,56 @@ function Contact() {
           <aside className="space-y-6">
             <Info icon={Phone} label="Phone" value="+91 86790 07159" href="tel:+918679007159" />
             <Info icon={Mail} label="Email" value={NOTIFY_EMAIL} href={`mailto:${NOTIFY_EMAIL}`} />
-            <Info icon={MessageCircle} label="WhatsApp" value="Chat with the studio" href="https://wa.me/+918679007159" />
-            <Info icon={MapPin} label="Studio" value="Mumbai Andheri" />
+            <Info
+              icon={MessageCircle}
+              label="WhatsApp"
+              value="Chat with the studio"
+              href="https://wa.me/+918679007159"
+            />
+            <Info icon={MapPin} label="Studio" value="Mumbai Andheri West" />
 
             <div className="glass rounded-3xl p-6">
               <p className="eyebrow mb-4">Follow the work</p>
               <div className="grid grid-cols-4 gap-3">
-                <a href="https://www.instagram.com/triyashmedia1/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="grid place-items-center h-11 w-11 rounded-full border border-border/60 hover:border-gold hover:text-gold transition-colors">
+                <a
+                  href="https://www.instagram.com/triyashmedia1/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  className="grid place-items-center h-11 w-11 rounded-full border border-border/60 hover:border-gold hover:text-gold transition-colors"
+                >
                   <Instagram className="h-4 w-4" />
                 </a>
-                <a href="https://www.facebook.com/share/1Czy5CiZWg/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="grid place-items-center h-11 w-11 rounded-full border border-border/60 hover:border-gold hover:text-gold transition-colors">
+                <a
+                  href="https://www.facebook.com/share/1Czy5CiZWg/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook"
+                  className="grid place-items-center h-11 w-11 rounded-full border border-border/60 hover:border-gold hover:text-gold transition-colors"
+                >
                   <Facebook className="h-4 w-4" />
                 </a>
-                <a href="https://www.linkedin.com/in/ankit-singh-49955a3a7/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="grid place-items-center h-11 w-11 rounded-full border border-border/60 hover:border-gold hover:text-gold transition-colors">
+                <a
+                  href="https://www.linkedin.com/in/ankit-singh-49955a3a7/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                  className="grid place-items-center h-11 w-11 rounded-full border border-border/60 hover:border-gold hover:text-gold transition-colors"
+                >
                   <Linkedin className="h-4 w-4" />
                 </a>
-                <a href="https://youtube.com/@triyashmedia" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="grid place-items-center h-11 w-11 rounded-full border border-border/60 hover:border-gold hover:text-gold transition-colors">
+                <a
+                  href="https://youtube.com/@triyashmedia"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="YouTube"
+                  className="grid place-items-center h-11 w-11 rounded-full border border-border/60 hover:border-gold hover:text-gold transition-colors"
+                >
                   <Youtube className="h-4 w-4" />
                 </a>
               </div>
             </div>
-{/* Map
+            {/* Map
             <div className="overflow-hidden rounded-3xl border border-border/40 w-full h-72 md:h-auto md:aspect-[5/3]">
                <iframe 
                 title="Studio location"
@@ -178,10 +237,24 @@ function Contact() {
   );
 }
 
-function Field({ label, name, type = "text", placeholder, required = true }: { label: string; name: string; type?: string; placeholder?: string; required?: boolean }) {
+function Field({
+  label,
+  name,
+  type = "text",
+  placeholder,
+  required = true,
+}: {
+  label: string;
+  name: string;
+  type?: string;
+  placeholder?: string;
+  required?: boolean;
+}) {
   return (
     <div>
-      <label htmlFor={name} className="block eyebrow mb-2">{label}</label>
+      <label htmlFor={name} className="block eyebrow mb-2">
+        {label}
+      </label>
       <input
         id={name}
         name={name}
@@ -194,15 +267,33 @@ function Field({ label, name, type = "text", placeholder, required = true }: { l
   );
 }
 
-function Info({ icon: Icon, label, value, href }: { icon: any; label: string; value: string; href?: string }) {
+function Info({
+  icon: Icon,
+  label,
+  value,
+  href,
+}: {
+  icon: LucideIcon;
+  label: string;
+  value: string;
+  href?: string;
+}) {
   const inner = (
     <div className="flex items-start gap-4 glass rounded-2xl p-5 hover-lift">
-      <div className="grid place-items-center h-11 w-11 rounded-xl bg-gold/15 text-gold shrink-0"><Icon className="h-4 w-4" /></div>
+      <div className="grid place-items-center h-11 w-11 rounded-xl bg-gold/15 text-gold shrink-0">
+        <Icon className="h-4 w-4" />
+      </div>
       <div>
         <p className="eyebrow text-[0.65rem]">{label}</p>
         <p className="mt-1 font-ui">{value}</p>
       </div>
     </div>
   );
-  return href ? <a href={href} className="block">{inner}</a> : inner;
+  return href ? (
+    <a href={href} className="block">
+      {inner}
+    </a>
+  ) : (
+    inner
+  );
 }
